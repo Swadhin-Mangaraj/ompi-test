@@ -2,7 +2,7 @@
 /*	(c) Copyright 2011-2019																*/
 /*	Swadhin K Mangaraj, swadhin.mangaraj@gmail.com										*/
 /*																						*/
-/*	SPDX-License-Identifier: GPL-2.0+ OR MIT											*/
+/*	SPDX-License-Identifier: MIT											*/
 /*																						*/
 /*	Description: This is a basic MPI program that prints the rank of each processor		*/
 /*				and the total number of participating processors.						*/
@@ -26,7 +26,7 @@ int main (int argc, char **argv)
 
 	if(MASTER == my_rank)	// for the root rank
   	{
-    	printf("Total number of participating processes is ===> %d\n", number_of_processors); 
+		printf("Total number of participating processes is ===> %d\n", number_of_processors); 
 		printf("Hello, this is process: %d\n", my_rank);   // returns the rank of the master process
   	} 
 	else		// for all non-root ranks
