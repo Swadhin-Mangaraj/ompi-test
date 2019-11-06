@@ -1,13 +1,13 @@
 /****************************************************************************************/
-/*	(c) Copyright 2011-2019																*/
-/*	Swadhin K Mangaraj, swadhin.mangaraj@gmail.com										*/
-/*																						*/
-/*	SPDX-License-Identifier: MIT											*/
-/*																						*/
-/*	Description: This is a basic MPI program that prints the rank of each processor		*/
-/*				and the total number of participating processors.						*/
-/*	Input: None																			*/
-/*	Output: Identification number for each processor and total # of processors			*/
+/*	(c) Copyright 2011-2019								*/
+/*	Swadhin K Mangaraj, swadhin.mangaraj@gmail.com					*/
+/*											*/
+/*	SPDX-License-Identifier: MIT							*/
+/*											*/
+/*	Description: This is a basic MPI program that prints the rank of each processor	*/
+/*				and the total number of participating processors.	*/
+/*	Input: None									*/
+/*	Output: Identification number for each processor and total # of processors	*/
 /*                                                                                      */
 /****************************************************************************************/
 
@@ -30,7 +30,9 @@ int main (int argc, char **argv)
 		printf("Hello, this is process: %d\n", my_rank);   // returns the rank of the master process
   	} 
 	else		// for all non-root ranks
-  	{
+  	{	// since the following message is printed from different processor cores other than the master, 
+		// OpenMPI does not guarantee any specific order for this message and the message from the master
+		// in above if(...) block
 		printf("Hello, this is process: %d\n", my_rank);   // returns the rank of the non-master processes
 	}
  	
