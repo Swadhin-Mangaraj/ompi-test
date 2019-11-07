@@ -4,14 +4,15 @@
 /*											*/
 /*	SPDX-License-Identifier: MIT							*/
 /*											*/
-/*	Description: This MPI program prints the "Hello World !!!" from each processor core.*/
-/*	Input: None																			*/
-/*	Output: A "Hello World !!!" message from all the processor cores.					*/
-/*	Remarks: Since the non-master processor cores send their message text to the master	*/
-/*			processor core and it is only the master that prints the message, the order	*/
-/*			is always preserved i.e. first master processor's message is printed 		*/
-/*			followed by the message from non-master processors.							*/ 
-/*																						*/
+/*	Description: This MPI program prints the "Hello World !!!" from each processor	*/
+/*		core.									*/
+/*	Input: None									*/
+/*	Output: A "Hello World !!!" message from all the processor cores.		*/
+/*	Remarks: Since the non-master processor cores send their message text to the 	*/
+/*		master processor core and it is only the master that prints the 	*/
+/*		message, the order is always preserved i.e. first, master processor's	*/
+/*		message is printed followed by the message from non-master processors.	*/ 
+/*											*/
 /****************************************************************************************/
 
 #include <stdio.h>
@@ -20,6 +21,7 @@
 #include <mpi.h>
 
 static const int MASTER = 0;
+static const int MESSAGE_SIZE = 80;
 
 int main (int argc, char **argv) 
 {
@@ -27,7 +29,7 @@ int main (int argc, char **argv)
 	int number_of_processors, my_rank, name_length, itr, tag=1;
 	// The pre-defined constant MPI_MAX_PROCESSOR_NAME is the maximum length of name returned by MPI_GET_PROCESSOR_NAME
 	char processor_name[MPI_MAX_PROCESSOR_NAME];
-	char greeting[MPI_MAX_PROCESSOR_NAME + 80];
+	char greeting[MPI_MAX_PROCESSOR_NAME + MESSAGE_SIZE];
 	MPI_Status status;
 
   	MPI_Init(&argc, &argv);   // starts the MPI execution environment
