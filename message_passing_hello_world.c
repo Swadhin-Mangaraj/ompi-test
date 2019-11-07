@@ -47,13 +47,13 @@ int main (int argc, char **argv)
   		printf("%s\n", greeting); 
   		for (itr=1 ; itr < number_of_processors ; itr++) 
   		{
-			MPI_Recv(greeting,   		// starting adress of the receive buffer
-					sizeof(greeting),  // size of the received data
-					MPI_CHAR,           // type of the received
-					itr,   				// source process from where data is received
-					tag,   				// tag
-					MPI_COMM_WORLD,     // communicator (the default one)  
-					&status);   		// indicates the status of the receive operation
+			MPI_Recv(greeting,		// starting adress of the receive buffer
+				sizeof(greeting),  	// size of the received data
+				MPI_CHAR,           	// type of the received
+				itr,   			// source process from where data is received
+				tag,   			// tag
+				MPI_COMM_WORLD,     	// communicator (the default one)  
+				&status);   		// indicates the status of the receive operation
 			printf("%s\n",greeting);
 		}
   	}
@@ -61,12 +61,11 @@ int main (int argc, char **argv)
   	{
 		// if the process is not the root process, it sends the message to the root
   		MPI_Send(greeting,   			// starting address of the send buffer
-  				strlen(greeting)+1,   	// size of the data to be sent
-  				MPI_CHAR,    			// type of the data sent
-  				0,           			// destination process to which the data is sent
-  				tag,           			// tag
-  				MPI_COMM_WORLD);     	// input communicator (default)
-
+			strlen(greeting)+1,   		// size of the data to be sent
+			MPI_CHAR,    			// type of the data sent
+			0,           			// destination process to which the data is sent
+			tag,           			// tag
+			MPI_COMM_WORLD);     		// input communicator (default)
 	}
 	
 	endTime = MPI_Wtime();
