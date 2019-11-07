@@ -8,13 +8,13 @@ represents mainly the merger among three well-known MPI implementations; FT-MPI,
 # ompi-test
 This repository comprises of some very basic 'C' programming examples using Open MPI. The examples have been tested in Ubuntu 19.04.
 
-<b>How to install OpenMPI on Ubuntu</b>
+<b>How to install Open MPI on Ubuntu</b>
 $ sudo apt-get install libopenmpi-dev openmpi-bin openmpi-doc
 
-<b>How to compile an OpenMPI program</b>
+<b>How to compile an Open MPI program</b>
 $ mpicc basic_mpi.c -o basic_mpi
 
-<b>How to execute the compiled OpenMPI program</b>
-$ mpiexec -n 2 MPI_Hello
+<b>How to execute the compiled Open MPI program</b>
+$ mpiexec -n 2 basic_mpi
 
 <b>Note</b>: "mpirun" can also be used instead of "mpiexec". In mpiexec command, the digit "2" represents the number of processor cores you can utilize to execute the example programs. 
